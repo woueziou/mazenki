@@ -22,6 +22,14 @@ class SplashUi extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Assets.svg.mazenkiLogo.svg(),
+              const Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text("Mazenki"),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text("by Taas Ekpaye"),
+              ),
             ],
           ),
         ),
