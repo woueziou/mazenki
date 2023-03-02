@@ -16,6 +16,7 @@ class HomeController extends BaseController {
   var markers = <Marker>[];
   onMapCreated(MapboxMapController controller) {
     _mapController = controller;
+    showMyLocation();
     _mapController.addListener(() {
       if (_mapController.isCameraMoving) {
         updateMarkerPosition();
@@ -82,5 +83,16 @@ class HomeController extends BaseController {
         // notifyListeners();
       });
     });
+  }
+
+  void fillArea() {
+    final coordinates = <LatLng>[];
+    for (var item in markerStates) {
+      coordinates.add(item.getCoordinate());
+    }
+    var geometry = [coordinates];
+    _mapController.addFill(
+      FillOptions(geometry: geometry, fillColor: "#6750A4", fillOpacity: 0.5),
+    );
   }
 }

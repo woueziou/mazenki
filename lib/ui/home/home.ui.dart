@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:mazenki/app/built_assets/assets.gen.dart';
@@ -73,21 +71,39 @@ class HomeUi extends StatelessWidget {
               Align(
                 alignment: Alignment.topCenter,
                 child: SafeArea(
-                  child: SizedBox(
-                    width: 40.w,
-                    height: 5.h,
-                    child: DecoratedBox(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                                child: Center(
-                                    child: Text(
-                                        "Fence mode : ${viewController.isGeoFenceMode ? 'on' : 'off'}"))),
-                          ],
-                        )),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 40.w,
+                        height: 5.h,
+                        child: DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    child: Center(
+                                        child: Text(
+                                            "Fence mode : ${viewController.isGeoFenceMode ? 'ON' : 'OFF'}"))),
+                              ],
+                            )),
+                      ),
+                      if (viewController.isGeoFenceMode)
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: IconButton(
+                                onPressed: () {
+                                  viewController.fillArea();
+                                },
+                                color: Colors.white,
+                                icon: Assets.iconsax.twotone.arrowDown.svg()),
+                          ),
+                        )
+                    ],
                   ),
                 ),
               ),
@@ -217,12 +233,12 @@ class HomeUi extends StatelessWidget {
                             Expanded(
                               child: IconButton(
                                   onPressed: () {},
-                                  icon: Assets.iconsax.bold.setting.svg()),
+                                  icon: Assets.iconsax.bold.linkCircle.svg()),
                             ),
                             Expanded(
                               child: IconButton(
                                   onPressed: () {},
-                                  icon: Assets.iconsax.bold.linkCircle.svg()),
+                                  icon: Assets.iconsax.bold.setting.svg()),
                             ),
                           ],
                         )),
