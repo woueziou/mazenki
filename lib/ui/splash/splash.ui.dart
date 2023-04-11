@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mazenki/app/built_assets/assets.gen.dart';
 import 'package:mazenki/helpers/ui/components/base_view.dart';

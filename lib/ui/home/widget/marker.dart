@@ -3,10 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
-import 'package:mazenki/app/built_assets/assets.gen.dart';
 
 class Marker extends StatefulWidget {
   final String id;
@@ -35,7 +32,7 @@ class Marker extends StatefulWidget {
 
 class MarkerState extends State<Marker> with TickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
+  // late Animation<double> _animation;
   Point position;
   String id;
 
@@ -47,7 +44,7 @@ class MarkerState extends State<Marker> with TickerProviderStateMixin {
         AnimationController(vsync: this, duration: const Duration(seconds: 2))
           ..repeat(reverse: true);
 
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.elasticOut);
+    // _animation = CurvedAnimation(parent: _controller, curve: Curves.elasticOut);
   }
 
   @override
@@ -89,6 +86,6 @@ class MarkerState extends State<Marker> with TickerProviderStateMixin {
   }
 
   LatLng getCoordinate() {
-    return (widget as Marker).coordinate;
+    return (widget).coordinate;
   }
 }

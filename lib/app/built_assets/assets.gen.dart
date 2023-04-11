@@ -33,6 +33,16 @@ class $AssetsSvgGen {
   List<SvgGenImage> get values => [mazenkiLogo];
 }
 
+class $AssetsThemeGen {
+  const $AssetsThemeGen();
+
+  /// File path: assets/theme/light.json
+  String get light => 'assets/theme/light.json';
+
+  /// List of all assets
+  List<String> get values => [light];
+}
+
 class $AssetsIconsaxBoldGen {
   const $AssetsIconsaxBoldGen();
 
@@ -26554,6 +26564,7 @@ class Assets {
 
   static const $AssetsIconsaxGen iconsax = $AssetsIconsaxGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
+  static const $AssetsThemeGen theme = $AssetsThemeGen();
 }
 
 class AssetGenImage {
@@ -26664,7 +26675,6 @@ class SvgGenImage {
       colorFilter: colorFilter,
       color: color,
       colorBlendMode: colorBlendMode,
-      clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );
   }
