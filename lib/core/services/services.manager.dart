@@ -18,10 +18,7 @@ class ServiceManager {
   }
 
   static void _initServices() {
-    locator.registerSingletonAsync<HiveService>(() async {
-      final service = await HiveService().init();
-      return service;
-    });
+    locator.registerLazySingleton<HiveService>(() => HiveService());
     locator.registerLazySingleton<LocationService>(() => LocationService());
     locator.registerLazySingleton<NavigationService>(() => NavigationService());
   }
@@ -30,5 +27,9 @@ class ServiceManager {
     locator.registerLazySingleton<SplashController>(() => SplashController());
     locator.registerLazySingleton<HomeController>(() => HomeController());
     locator.registerLazySingleton<SettingController>(() => SettingController());
+  }
+
+  static Future<void> startService() async {
+    await locator.get<HiveService>().init();
   }
 }

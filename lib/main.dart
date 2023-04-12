@@ -13,6 +13,7 @@ void main() async {
   final lightJson = jsonDecode(lightStr);
   final light = ThemeDecoder.decodeThemeData(lightJson);
   await ServiceManager.initApp();
+  await ServiceManager.startService();
   runApp(Mazenki(
     light: light ??
         ThemeData(

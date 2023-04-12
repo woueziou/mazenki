@@ -3,19 +3,11 @@ import 'package:mazenki/core/data/models/place.coord.dart';
 import 'package:mazenki/core/data/models/place.dart';
 
 class HiveService {
-  static HiveService? _instance;
   late Box<Place> placeBox;
   late Box<PlaceGeoCodes> placeGeoBox;
-  Future<HiveService> init() async {
-    if (_instance != null) {
-      _instance = this;
-      return _instance!;
-    }
-
+  Future<void> init() async {
     _registerAdapter();
     await _initBoxes();
-    _instance = this;
-    return _instance!;
   }
 
   void _registerAdapter() {
